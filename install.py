@@ -45,7 +45,7 @@ load_file_from_url(
   url='https://github.com/anothermartz/Easy-Wav2Lip/releases/download/Prerequesits/shape_predictor_68_face_landmarks_GTX.dat',
   model_dir='checkpoints', progress=True, file_name='shape_predictor_68_face_landmarks_GTX.dat')
 
-# load_predictor()
+load_predictor()
 
 #write a file to signify setup is done
 with open('installed.txt', 'w') as f:
