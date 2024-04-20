@@ -432,9 +432,11 @@ def face_detect(images, results_file='last_detected_face.pkl'):
         if rect is None:
             cv2.imwrite('temp/faulty_frame.jpg', image) # check this frame where the face was not detected.
             raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
-
+        face_height = rect[3] - rect[1]
+        print(f"height is {face_height}")
+        new_pady2 = int(face_height * pady2 / 100)
         y1 = max(0, rect[1] - pady1)
-        y2 = min(image.shape[0], rect[3] + pady2)
+        y2 = min(image.shape[0], rect[3] + new_pady2)
         x1 = max(0, rect[0] - padx1)
         x2 = min(image.shape[1], rect[2] + padx2)
 
